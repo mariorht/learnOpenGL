@@ -6,6 +6,8 @@ This project demonstrates how to render a triangle using OpenGL with indexed dra
 
 ## Requirements
 
+To install the dependencies, see [dependencies/dependencies.md]
+
 - CMake (version 3.10 or higher)
 - OpenGL
 - GLFW
