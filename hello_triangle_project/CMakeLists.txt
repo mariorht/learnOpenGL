@@ -28,3 +28,12 @@ add_executable(HelloTriangle ${SOURCES})
 
 # Link libraries
 target_link_libraries(HelloTriangle glad ${OPENGL_LIBRARIES} glfw dl)
+
+# Set build types
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
+# Set the default build type to Release if not specified
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
