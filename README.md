@@ -1,5 +1,3 @@
-# hello_triangle_project/hello_triangle_project/README.md
-
 # Hello Triangle Project
 
 This project demonstrates how to render a triangle using OpenGL with indexed drawing. It includes functions for initializing OpenGL, processing input, and handling window resizing.
