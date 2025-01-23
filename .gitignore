@@ -1,4 +1,4 @@
 dependencies/GLAD
 dependencies/glfw
 build/
-.vscode
+.vscode/
