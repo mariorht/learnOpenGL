@@ -6,3 +6,4 @@ project(RootProject)
 # Add the subdirectory containing the actual project
 add_subdirectory(hello_triangle_project)
 add_subdirectory(shaders_class)
+add_subdirectory(textures)
