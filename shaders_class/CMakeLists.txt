@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name
-project(HelloTriangle)
+project(ShadersClass)
 
 # Specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -23,14 +23,19 @@ include_directories(../dependencies/GLAD/include)
 
 # Source files
 set(SOURCES
-    src/hello_triangle_indexed.cpp
+    src/shaders_class.cpp
+    src/shader_s.h
 )
 
 # Create the executable
-add_executable(HelloTriangle ${SOURCES})
+add_executable(ShadersClass ${SOURCES})
 
 # Link libraries
-target_link_libraries(HelloTriangle glad ${OPENGL_LIBRARIES} glfw dl)
+target_link_libraries(ShadersClass glad ${OPENGL_LIBRARIES} glfw dl)
+
+# Define the path to the shaders
+target_compile_definitions(ShadersClass PRIVATE SHADER_PATH=\"${CMAKE_SOURCE_DIR}/shaders_class/src\")
+
 
 # Set build types
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
