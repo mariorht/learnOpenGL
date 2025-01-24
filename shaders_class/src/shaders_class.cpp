@@ -3,6 +3,9 @@
 
 #include "shader_s.h"
 
+#include <cmath>
+#include <ctime>
+
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -94,6 +97,14 @@ int main()
 
         // render the triangle
         ourShader.use();
+
+        // Añadimos un offset con un uniform para movimiento en círculo
+        float timeValue = glfwGetTime();
+        float xOffset = 0.4f * sin(timeValue);
+        float yOffset = 0.4f * cos(timeValue);
+        ourShader.setFloat("xOffset", xOffset);
+        ourShader.setFloat("yOffset", yOffset);
+
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
