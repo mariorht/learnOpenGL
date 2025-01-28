@@ -16,6 +16,9 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+// stores how much we're seeing of either texture
+float mixValue = 0.2f;
+
 int main()
 {
     // glfw: initialize and configure
@@ -125,8 +128,8 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     // load image, create texture and generate mipmaps
     data =  stbi_load(TEXTURES_PATH "/awesomeface.png", &width, &height, &nrChannels, 0);
     if (data)
@@ -169,6 +172,9 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture1);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
+
+        // set the texture mix value in the shader
+        ourShader.setFloat("mixValue", mixValue);
 
         // render container
         ourShader.use();
