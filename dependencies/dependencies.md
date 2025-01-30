@@ -4,7 +4,7 @@
 #### Ubuntu dependencies
 
 ```bash
-sudo apt install libwayland-dev libxkbcommon-dev xorg-dev
+sudo apt install libwayland-dev libxkbcommon-dev xorg-dev libglm-dev
 ```
 
 #### Download and compile source code, for OpenGL 3.3

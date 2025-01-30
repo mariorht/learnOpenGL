@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
+cmake_policy(SET CMP0072 NEW)
+set(OpenGL_GL_PREFERENCE GLVND)
+find_package(OpenGL REQUIRED)
+
+
 # Set the project name
 project(transformations)
 
@@ -20,12 +25,14 @@ if(NOT TARGET glad)
 endif()
 include_directories(../dependencies/GLAD/include)
 
+# Include glm
+find_package(glm REQUIRED)
+include_directories(${GLM_INCLUDE_DIRS})
+
 
 # Source files
 set(SOURCES
-    src/transformations.cpp
-    src/shader_s.h
-    src/stb_image.h
+    ${CMAKE_SOURCE_DIR}/transformations/src/transformations.cpp
 )
 
 # Create the executable
